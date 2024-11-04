@@ -23,7 +23,7 @@ export const tokenize = (str: string) => {
   const tokens: Token[] = []
   // 正则表达式捕获条件开始、结束标记和变量标记
   const regex =
-    /({{\s*#\s*each\s+(\w+)\s+for\s+(\w+)\s*}})|({{\s*\/\s*each\s*}})|({{\s*#\s*is\s+(\w+)\s*}})|({{\s*\/\s*is\s+(\w+)\s*}})|({{\s*([\w.]+)\s*}})|(\n)/g
+    /({{\s*#\s*each\s+(\w+)\s+for\s+(\w+)\s*}})|({{\s*\/\s*each\s*}})|({{\s*#\s*(is_\w+)\s*}})|({{\s*\/\s*(is_\w+)\s*}})|({{\s*([\w.]+)\s*}})|(\n)/g
   let lastIndex = 0
   let row = 0
   let match

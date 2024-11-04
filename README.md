@@ -19,16 +19,16 @@ npm install @dhlx/text-template
 import { template } from '@dhlx/text-template'
 
 const tmpl = template(`
-  {{#is isLoggedIn}}
+  {{#is_loggedIn}}
     欢迎，{{username}}！
     {{#each items for item}}
       项目: {{item}}
     {{/each}}
-  {{/is}}
+  {{/is_loggedIn}}
 `)
 
 const result = tmpl({
-  isLoggedIn: true,
+  is_loggedIn: true,
   username: 'Alice',
   items: ['苹果', '香蕉', '樱桃']
 })
@@ -57,14 +57,14 @@ const tmpl = template('你好，{{username}}！')
 const result = tmpl({ username: 'Alice' })
 // 输出："你好，Alice！"
 ```
-2. 条件语句：使用 {{#is 条件}} ... {{/is}} 语法有条件地包含内容。
+2. 条件语句：使用 `{{#is_条件}} ... {{/is_条件}}` 语法有条件地包含内容。
 ```typescript
 const tmpl = template(`
-  {{#is isLoggedIn}}
+  {{#is_loggedIn}}
     欢迎，{{username}}！
-  {{/is}}
+  {{/is_loggedIn}}
 `)
-const result = tmpl({ isLoggedIn: true, username: 'Alice' })
+const result = tmpl({ is_loggedIn: true, username: 'Alice' })
 // 输出："欢迎，Alice！"
 ```
 3. 循环语句：使用 {{#each 数组名 for item名}} ... {{/each}} 语法来循环渲染数组中的内容。

@@ -2,13 +2,13 @@ import template from './dist/index.js'
 
 const fn = template(`
 hello
-  {{#is alert}}
+  {{#is_alert}}
   1111
-  {{#is warning}}
+  {{#is_warning}}
   12222
-  {{/is warning}}
+  {{/is_warning}}
   {{alertMessage}}
-  {{/is alert}}
+  {{/is_alert}}
   {{#each item for list}}
   {{item.name}}
   {{/each}}
@@ -16,8 +16,8 @@ hello
 
 console.log(
   fn({
-    alert: true,
-    warning: true,
+    is_alert: true,
+    is_warning: true,
     alertMessage: 'alertMessage1',
     list: [
       {

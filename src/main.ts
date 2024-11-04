@@ -1,23 +1,19 @@
 import template from '../lib/main.ts'
 
 
-const fn = template(`
-  hello
-  {{# is alert}}
-  1111 
-  {{# is warning}}
-  2222
-  {{/ is warning}}
-  {{/is alert}}
-`);
+const tmpl = template(`
+  {{#is_loggedIn}}
+    欢迎，{{username}}！
+    {{#each items for item}}
+      项目: {{item}}
+    {{/each}}
+  {{/is_loggedIn}}
+`)
 
-console.log(fn({
-    id: '4',
-    success_count: 20,
-    total_count: 77796,
-    current_status: 0.03,
-    error_budget: -72.36,
-    burn_rate: 1.72,
-    status: 'Alert'
-  }
-))
+const result = tmpl({
+  is_loggedIn: true,
+  username: 'Alice',
+  items: ['苹果', '香蕉', '樱桃']
+})
+
+console.log(result)
